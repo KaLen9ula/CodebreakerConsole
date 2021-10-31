@@ -4,7 +4,6 @@ en:
     rules: 'rules'
     statistics: 'statistics'
     exit: 'exit'
-    hint: 'hint'
     agree: 'y'
     info: |
       Enter one of next commands:
@@ -12,29 +11,28 @@ en:
           rules -> to show rules for game
           statistics -> to show statistics
           exit  -> to exit from console
-          
   registration:
-    name: 'Enter name:\n'
+    name: "Enter name:\n"
   error:
     command_error: 'Wrong command. Try again!'
-    guess_input_error: 'The guess must be 4 digits long.\nEach digit is a number nust be in the range 1-6:\n'
-    name_length_error: 'The name must be from 3 to 20 characters long.\n'
-    difficulty_input_error: 'This difficulty is not available.\n'
+    guess_input_error: "The guess must be 4 digits long.\nEach digit is a number nust be in the range 1-6:\n"
+    name_length_error: "The name must be from 3 to 20 characters long.\n"
+    difficulty_input_error: "This difficulty is not available.\n"
   game:
-    guess: 'Enter guess:\n'
-    matrix: 'Matrix: %{matrix}'
+    guess: "Enter guess:\n"
+    hint: 'hint'
+    matrix: "Matrix: %{matrix}"
     no_hints: 'You have no hints'
-    loss: 'Secret code: %{secret_code}\nYou lost!\n'
-    win: 'You won!\n'
-    save_result: 'Save results? (y/n):\n'
-    new_game: 'Start a new game? (y/n):\n'
+    loss: "Secret code: %{code}\nYou lost!\n"
+    win: "You won!\n"
+    save_result: "Save results? (y/n):\n"
+    new_game: "Start a new game? (y/n):\n"
     exit: 'Goodbye!'
     difficulty: |
       Enter difficulty:
         easy -> 15 attempts and 2 hints
         medium -> 10 attempts and 1 hint
         hell -> 5 attempts and 1 hint
-
     rules: |
       Game Rules:
           1.Codebreaker is a logic game in which a code-breaker tries to break a secret code
@@ -58,4 +56,3 @@ en:
           game. If all attempts are spent - codebreaker loses.
           7.Codebreaker also has some number of hints(depends on chosen difficulty). If a user takes
           a hint - he receives back a separate digit of the secret code.
-

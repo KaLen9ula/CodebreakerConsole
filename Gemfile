@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-gem 'codebreaker_gem', git: 'https://github.com/KaLen9ula/CodebreakerGem.git', branch: 'develop'
+gem 'codebraker', git: 'https://github.com/KaLen9ula/CodebreakerGem.git', branch: 'develop'
 gem 'fasterer', '~> 0.8.3'
 gem 'i18n', '~> 1.8.10'
 gem 'lefthook', '~> 0.7.7'
