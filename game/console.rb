@@ -50,7 +50,6 @@ class Console
         @codebraker_game.difficulty = difficulty.to_sym
         break
       else
-        # binding.pry
         View.difficulty_input_error
       end
     end

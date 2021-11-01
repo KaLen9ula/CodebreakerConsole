@@ -15,7 +15,7 @@ RSpec.describe Console do
     after do
       game.run
     rescue SystemExit
-      # Ignored
+      nil
     end
 
     context 'when user entered rules return rules' do
