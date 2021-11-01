@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require_relative 'loader'
-require 'pry'
 
 class Console
   include ConsoleGame
