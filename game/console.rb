@@ -55,20 +55,20 @@ class Console
   end
 
   def game
-    loop { break if lost? || procced? }
+    loop { break if lost || procced }
     new_game
   end
 
-  def procced?
+  def procced
     case guess = View.obtain_guess
     when I18n.t('menu.exit') then exit
     when I18n.t('game.hint')
       hint
       false
-    else guess_passed?(guess) end
+    else guess_passed(guess) end
   end
 
-  def lost?
+  def lost
     return unless @codebraker_game.lose?
 
     View.loss(@codebraker_game.code)
@@ -79,7 +79,7 @@ class Console
     @codebraker_game.check_for_hints? ? View.hint(@codebraker_game.use_hint) : View.no_hints
   end
 
-  def guess_passed?(guess)
+  def guess_passed(guess)
     matrix = @codebraker_game.generate_signs(guess)
     @codebraker_game.win?(guess) ? win_screenplay : View.matrix(matrix)
   rescue InputError
@@ -89,6 +89,10 @@ class Console
 
   def win_screenplay
     View.win
+    save
+  end
+
+  def save
     @codebraker_game.save_game(@codebraker_game) if View.obtain_save == I18n.t('menu.agree')
   end
 

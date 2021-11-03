@@ -6,11 +6,11 @@ module ConsoleGame
   module View
     class << self
       def menu
-        puts I18n.t 'menu.info'
+        puts I18n.t('menu.info')
       end
 
       def rules
-        puts I18n.t 'game.rules'
+        puts I18n.t('game.rules')
       end
 
       def statistics
@@ -21,23 +21,23 @@ module ConsoleGame
       end
 
       def menu_message_error
-        puts I18n.t 'error.command_error'
+        puts I18n.t('error.command_error')
       end
 
       def guess_input_error
-        puts I18n.t 'error.guess_input_error'
+        puts I18n.t('error.guess_input_error')
       end
 
       def name_length_error
-        puts I18n.t 'error.name_length_error'
+        puts I18n.t('error.name_length_error')
       end
 
       def difficulty_input_error
-        puts I18n.t 'error.difficulty_input_error'
+        puts I18n.t('error.difficulty_input_error')
       end
 
       def win
-        puts I18n.t 'game.win'
+        puts I18n.t('game.win')
       end
 
       def loss(code)
@@ -49,7 +49,7 @@ module ConsoleGame
       end
 
       def no_hints
-        puts I18n.t 'game.no_hints'
+        puts I18n.t('game.no_hints')
       end
 
       def matrix(matrix)
