@@ -4,10 +4,10 @@ RSpec.describe Console do
   subject(:view_module) { ConsoleGame::View }
 
   let(:game) { described_class.new }
-  let(:name) { 'name' }
-  let(:wrong_name) { 'bo' }
-  let(:difficulty) { 'hell' }
-  let(:wrong_difficulty) { 'hard' }
+  let(:name) { I18n.t('specs.name') }
+  let(:wrong_name) { I18n.t('specs.invalid_name') }
+  let(:difficulty) { I18n.t('specs.difficulty') }
+  let(:wrong_difficulty) { I18n.t('specs.invalid_difficulty') }
 
   describe '#run' do
     after do
@@ -17,7 +17,7 @@ RSpec.describe Console do
     end
 
     context 'with registration stage' do
-      before { allow(view_module).to receive(:fetch_user_input).and_return('start', 'exit') }
+      before { allow(view_module).to receive(:fetch_user_input).and_return(I18n.t('menu.start'), I18n.t('menu.exit')) }
 
       context 'when user enters name' do
         before { allow(view_module).to receive(:obtain_difficulty).and_return(difficulty) }

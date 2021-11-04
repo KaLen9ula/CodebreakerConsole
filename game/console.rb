@@ -4,7 +4,6 @@ require_relative 'loader'
 
 class Console
   include ConsoleGame
-  WIN_MATRIX = '++++'
 
   def run
     loop do
@@ -12,7 +11,7 @@ class Console
       case View.fetch_user_input
       when I18n.t('menu.start') then start
       when I18n.t('menu.rules') then View.rules
-      when I18n.t('menu.statistics') then View.statistics
+      when I18n.t('menu.statistics') then statistics
       when I18n.t('menu.exit') then exit
       else View.menu_message_error end
     end
@@ -26,19 +25,16 @@ class Console
   end
 
   def registration
-    name_input
+    input_name
     input_difficulty
   end
 
-  def name_input
+  def input_name
     loop do
       name = View.obtain_name
-      begin
-        @codebraker_game.user.name = name
-        break
-      rescue LengthError
-        View.name_length_error
-      end
+      break @codebraker_game.user.name = name
+    rescue LengthError
+      View.name_length_error
     end
   end
 
@@ -55,16 +51,14 @@ class Console
   end
 
   def game
-    loop { break if lost || procced }
+    loop { break if lost || proceed }
     new_game
   end
 
-  def procced
+  def proceed
     case guess = View.obtain_guess
     when I18n.t('menu.exit') then exit
-    when I18n.t('game.hint')
-      hint
-      false
+    when I18n.t('game.hint') then hint
     else guess_passed(guess) end
   end
 
@@ -84,7 +78,6 @@ class Console
     @codebraker_game.win?(guess) ? win_screenplay : View.matrix(matrix)
   rescue InputError
     View.guess_input_error
-    false
   end
 
   def win_screenplay
@@ -98,6 +91,14 @@ class Console
 
   def new_game
     start if View.obtain_new_game == I18n.t('menu.agree')
+  end
+
+  def statistics
+    View.statistics
+    puts Terminal::Table.new(
+          headings: ['Name', 'Difficulty', 'Attempts Total', 'Hints Total', 'Attempts Used', 'Hints Used'],
+          rows: Codebraker::Statistics.new.show.map(&:values)
+        )
   end
 
   def difficulty_accessible?(difficulty)

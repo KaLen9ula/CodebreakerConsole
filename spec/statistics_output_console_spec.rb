@@ -13,7 +13,7 @@ RSpec.describe Console do
     context 'with statistics output' do
       before { allow(view_module).to receive(:fetch_user_input).and_return('statistics') }
 
-      it { expect { view_module.statistics }.to output.to_stdout }
+      it { expect { view_module.statistics }.to output(/Players rating/).to_stdout }
     end
   end
 end

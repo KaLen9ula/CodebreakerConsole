@@ -14,10 +14,7 @@ module ConsoleGame
       end
 
       def statistics
-        puts Terminal::Table.new(
-          headings: ['Name', 'Difficulty', 'Attempts Total', 'Hints Total', 'Attempts Used', 'Hints Used'],
-          rows: Codebraker::Statistics.new.show.map(&:values)
-        )
+        puts I18n.t('game.stats')
       end
 
       def menu_message_error

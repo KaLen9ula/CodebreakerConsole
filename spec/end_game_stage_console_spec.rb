@@ -4,8 +4,8 @@ RSpec.describe Console do
   subject(:view_module) { ConsoleGame::View }
 
   let(:game) { described_class.new }
-  let(:name) { 'name' }
-  let(:difficulty) { 'hell' }
+  let(:name) { I18n.t('specs.name') }
+  let(:difficulty) { I18n.t('specs.difficulty') }
 
   describe '#run' do
     after do
@@ -16,19 +16,19 @@ RSpec.describe Console do
 
     context 'when user finished game' do
       before do
-        allow(view_module).to receive(:obtain_guess).and_return('1234')
-        allow(view_module).to receive(:fetch_user_input).and_return('start', 'exit')
+        allow(view_module).to receive(:obtain_guess).and_return(I18n.t('specs.code'))
+        allow(view_module).to receive(:fetch_user_input).and_return(I18n.t('menu.start'), I18n.t('menu.exit'))
         allow(view_module).to receive(:obtain_name).and_return(name)
         allow(view_module).to receive(:obtain_difficulty).and_return(difficulty)
         allow(view_module).to receive(:guess_input_error)
         allow(view_module).to receive(:matrix)
-        allow(view_module).to receive(:obtain_new_game).and_return('n')
+        allow(view_module).to receive(:obtain_new_game).and_return(I18n.t('menu.disagree'))
       end
 
       context 'when user win return win message' do
         before do
-          allow(view_module).to receive(:obtain_save).and_return('n')
-          allow(view_module).to receive(:obtain_guess).and_return('1111')
+          allow(view_module).to receive(:obtain_save).and_return(I18n.t('menu.disagree'))
+          allow(view_module).to receive(:obtain_guess).and_return(I18n.t('specs.code'))
           allow_any_instance_of(Codebraker::Game).to receive(:win?).and_return(true, false)
         end
 

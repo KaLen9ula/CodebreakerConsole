@@ -5,6 +5,7 @@ en:
     statistics: 'statistics'
     exit: 'exit'
     agree: 'y'
+    disagree: 'n'
     info: |
       Enter one of next commands:
           start -> to start game
@@ -19,7 +20,7 @@ en:
     name_length_error: "The name must be from 3 to 20 characters long.\n"
     difficulty_input_error: "This difficulty is not available.\n"
   game:
-    guess: "Enter guess:\n"
+    guess: "Enter guess: (write hint to receive hint, write exit to leave game)\n"
     hint: 'hint'
     matrix: "Matrix: %{matrix}"
     no_hints: 'You have no hints'
@@ -27,6 +28,7 @@ en:
     win: "You won!\n"
     save_result: "Save results? (y/n):\n"
     new_game: "Start a new game? (y/n):\n"
+    stats: 'Players rating'
     exit: 'Goodbye!'
     difficulty: |
       Enter difficulty:
@@ -56,3 +58,12 @@ en:
           game. If all attempts are spent - codebreaker loses.
           7.Codebreaker also has some number of hints(depends on chosen difficulty). If a user takes
           a hint - he receives back a separate digit of the secret code.
+  specs:
+    invalid_command: 'awdmas'
+    name: 'name'
+    invalid_name: 'bo'
+    difficulty: 'hell'
+    invalid_difficulty: 'hard'
+    code: '1234'
+
+
