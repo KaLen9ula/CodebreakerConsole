@@ -96,9 +96,9 @@ class Console
   def statistics
     View.statistics
     puts Terminal::Table.new(
-          headings: ['Name', 'Difficulty', 'Attempts Total', 'Hints Total', 'Attempts Used', 'Hints Used'],
-          rows: Codebraker::Statistics.new.show.map(&:values)
-        )
+      headings: ['Name', 'Difficulty', 'Attempts Total', 'Hints Total', 'Attempts Used', 'Hints Used'],
+      rows: Codebraker::Statistics.new.show.map(&:values)
+    )
   end
 
   def difficulty_accessible?(difficulty)

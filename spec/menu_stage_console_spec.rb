@@ -21,7 +21,9 @@ RSpec.describe Console do
     end
 
     context 'when user enteres statistics return stats' do
-      before { allow(view_module).to receive(:fetch_user_input).and_return(I18n.t('menu.statistics'), I18n.t('menu.exit')) }
+      before do
+        allow(view_module).to receive(:fetch_user_input).and_return(I18n.t('menu.statistics'), I18n.t('menu.exit'))
+      end
 
       it { expect(view_module).to receive(:statistics) }
     end
@@ -34,7 +36,8 @@ RSpec.describe Console do
 
     context 'when user entered wrong command return error' do
       before do
-        allow(view_module).to receive(:fetch_user_input).and_return(I18n.t('specs.invalid_command'), I18n.t('menu.exit'))
+        allow(view_module).to receive(:fetch_user_input).and_return(I18n.t('specs.invalid_command'),
+                                                                    I18n.t('menu.exit'))
         allow(view_module).to receive(:menu)
       end
 

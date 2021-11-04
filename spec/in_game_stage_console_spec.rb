@@ -44,7 +44,10 @@ RSpec.describe Console do
         end
 
         context 'when hints is used output appropriate message from view' do
-          before { allow(view_module).to receive(:obtain_guess).and_return(I18n.t('game.hint'), I18n.t('game.hint'), I18n.t('menu.exit')) }
+          before do
+            allow(view_module).to receive(:obtain_guess).and_return(I18n.t('game.hint'), I18n.t('game.hint'),
+                                                                    I18n.t('menu.exit'))
+          end
 
           it { expect(view_module).to receive(:no_hints) }
         end

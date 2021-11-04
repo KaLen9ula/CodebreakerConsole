@@ -2,6 +2,8 @@
 
 require 'support/shared_examples_for_view'
 
+require_relative '../spec_helper'
+
 RSpec.describe ConsoleGame::View do
   %i[obtain_guess obtain_name obtain_difficulty obtain_save obtain_new_game].each do |function_name|
     include_examples 'gets chomp', function_name
