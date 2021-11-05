@@ -51,11 +51,11 @@ class Console
   end
 
   def game
-    loop { break if lost || proceed }
+    loop { break if lost || exit_conditions }
     new_game
   end
 
-  def proceed
+  def exit_conditions
     case guess = View.obtain_guess
     when I18n.t('menu.exit') then exit
     when I18n.t('game.hint') then hint
