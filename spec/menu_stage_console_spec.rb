@@ -4,8 +4,6 @@ RSpec.describe Console do
   subject(:view_module) { ConsoleGame::View }
 
   let(:game) { described_class.new }
-  let(:name) { I18n.t('specs.name') }
-  let(:difficulty) { I18n.t('specs.difficulty') }
 
   describe '#run' do
     after do

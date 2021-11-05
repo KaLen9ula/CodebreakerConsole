@@ -7,7 +7,7 @@ RSpec.describe Console do
 
   let(:game) { described_class.new }
   let(:name) { I18n.t('specs.name') }
-  let(:difficulty) { I18n.t('specs.difficulty') }
+  let(:difficulty) { Codebraker::DIFFICULTIES.keys[2].to_s }
 
   describe '#run' do
     after do

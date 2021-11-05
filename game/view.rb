@@ -62,7 +62,9 @@ module ConsoleGame
       end
 
       def obtain_difficulty
-        fetch_user_input(I18n.t('game.difficulty'))
+        fetch_user_input(I18n.t('game.difficulty', easy: difficulty_output(Codebraker::DIFFICULTIES[:easy]),
+                                                   medium: difficulty_output(Codebraker::DIFFICULTIES[:medium]),
+                                                   hell: difficulty_output(Codebraker::DIFFICULTIES[:hell])))
       end
 
       def obtain_save
@@ -76,6 +78,12 @@ module ConsoleGame
       def fetch_user_input(question = nil)
         puts question if question
         gets.chomp
+      end
+
+      private
+
+      def difficulty_output(difficulty)
+        difficulty.map { |key, value| "#{key}: #{value}" }.join(', ')
       end
     end
   end

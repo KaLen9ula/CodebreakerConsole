@@ -30,11 +30,10 @@ en:
     new_game: "Start a new game? (y/n):\n"
     stats: 'Players rating'
     exit: 'Goodbye!'
-    difficulty: |
-      Enter difficulty:
-        easy -> 15 attempts and 2 hints
-        medium -> 10 attempts and 1 hint
-        hell -> 5 attempts and 1 hint
+    difficulty: "Enter difficulty:
+        \neasy -> %{easy}
+        \nmedium -> %{medium}
+        \nhell -> %{hell}\n"
     rules: |
       Game Rules:
           1.Codebreaker is a logic game in which a code-breaker tries to break a secret code
@@ -62,7 +61,6 @@ en:
     invalid_command: 'awdmas'
     name: 'name'
     invalid_name: 'bo'
-    difficulty: 'hell'
     invalid_difficulty: 'hard'
     code: '1234'
 
