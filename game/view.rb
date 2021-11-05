@@ -88,8 +88,8 @@ module ConsoleGame
       difficulty.map { |key, value| "#{key}: #{value}" }.join(', ')
     end
 
-    def print_to_console(key, *args)
-      puts I18n.t(key, *args)
+    def print_to_console(key, **args)
+      puts I18n.t(key, **args)
     end
   end
 end
