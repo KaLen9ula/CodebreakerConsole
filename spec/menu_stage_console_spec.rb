@@ -4,6 +4,7 @@ RSpec.describe Console do
   subject(:view_module) { ConsoleGame::View }
 
   let(:game) { described_class.new }
+  let(:invalid_command) { 'q' * 4 }
 
   describe '#run' do
     after do
@@ -34,8 +35,7 @@ RSpec.describe Console do
 
     context 'when user entered wrong command return error' do
       before do
-        allow(view_module).to receive(:fetch_user_input).and_return(I18n.t('specs.invalid_command'),
-                                                                    I18n.t('menu.exit'))
+        allow(view_module).to receive(:fetch_user_input).and_return(invalid_command, I18n.t('menu.exit'))
         allow(view_module).to receive(:menu)
       end
 

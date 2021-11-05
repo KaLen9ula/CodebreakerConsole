@@ -57,11 +57,3 @@ en:
           game. If all attempts are spent - codebreaker loses.
           7.Codebreaker also has some number of hints(depends on chosen difficulty). If a user takes
           a hint - he receives back a separate digit of the secret code.
-  specs:
-    invalid_command: 'awdmas'
-    name: 'name'
-    invalid_name: 'bo'
-    invalid_difficulty: 'hard'
-    code: '1234'
-
-

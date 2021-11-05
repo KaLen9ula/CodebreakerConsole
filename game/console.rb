@@ -51,7 +51,7 @@ class Console
   end
 
   def game
-    loop { break if lost || exit_conditions }
+    loop { break if game_ended? || exit_conditions }
     new_game
   end
 
@@ -62,7 +62,7 @@ class Console
     else guess_passed(guess) end
   end
 
-  def lost
+  def game_ended?
     return unless @codebraker_game.lose?
 
     View.loss(@codebraker_game.code)
@@ -75,12 +75,12 @@ class Console
 
   def guess_passed(guess)
     matrix = @codebraker_game.generate_signs(guess)
-    @codebraker_game.win?(guess) ? win_screenplay : View.matrix(matrix)
+    @codebraker_game.win?(guess) ? win_output : View.matrix(matrix)
   rescue InputError
     View.guess_input_error
   end
 
-  def win_screenplay
+  def win_output
     View.win
     save
   end

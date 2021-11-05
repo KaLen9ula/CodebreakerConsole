@@ -9,5 +9,6 @@ end
 
 require 'bundler/setup'
 require 'codebraker'
+require 'faker'
 
 require_relative 'spec_requires'
