@@ -16,7 +16,7 @@ en:
     name: "Enter name:\n"
   error:
     command_error: 'Wrong command. Try again!'
-    guess_input_error: "The guess must be 4 digits long.\nEach digit is a number nust be in the range 1-6:\n"
+    guess_input_error: "The guess must be 4 digits long. Each digit is a number nust be in the range 1-6:\n"
     name_length_error: "The name must be from 3 to 20 characters long.\n"
     difficulty_input_error: "This difficulty is not available.\n"
   game:

@@ -26,20 +26,20 @@ RSpec.describe Console do
         allow(view_module).to receive(:obtain_new_game).and_return(I18n.t('menu.disagree'))
       end
 
-      context 'when user win receive win message' do
+      context 'when user win output win message' do
         before do
           allow(view_module).to receive(:obtain_save).and_return(I18n.t('menu.disagree'))
           allow(view_module).to receive(:obtain_guess).and_return(code)
           allow_any_instance_of(Codebraker::Game).to receive(:win?).and_return(true, false)
         end
 
-        it { expect(view_module).to receive(:win) }
+        it { expect { view_module.win }.to output(/You won!/).to_stdout }
       end
 
-      context 'when user lose receive lose message' do
+      context 'when user lose output lose message' do
         before { allow_any_instance_of(Codebraker::Game).to receive(:lose?).and_return(true, false) }
 
-        it { expect(view_module).to receive(:loss) }
+        it { expect { view_module.loss(code) }.to output(/You lost!/).to_stdout }
       end
     end
   end

@@ -20,12 +20,12 @@ RSpec.describe Console do
     context 'when game started' do
       before { allow(view_module).to receive(:fetch_user_input).and_return(I18n.t('menu.start'), I18n.t('menu.exit')) }
 
-      context 'when guess is not correct output error message from view' do
+      context 'when guess is not correct receive error message from view' do
         before do
           allow(view_module).to receive(:obtain_name).and_return(name)
           allow(view_module).to receive(:obtain_difficulty).and_return(difficulty)
-          allow(view_module).to receive(:guess_input_error)
           allow(view_module).to receive(:obtain_guess).and_return(code, I18n.t('menu.exit'))
+          allow(view_module).to receive(:guess_input_error)
         end
 
         it { expect(view_module).to receive(:guess_input_error) }
@@ -38,13 +38,13 @@ RSpec.describe Console do
           allow(view_module).to receive(:obtain_difficulty).and_return(difficulty)
         end
 
-        context 'when user enter hint output hint from view' do
+        context 'when user enter hint receive hint from view' do
           before { allow(view_module).to receive(:obtain_guess).and_return(I18n.t('game.hint'), I18n.t('menu.exit')) }
 
           it { expect(view_module).to receive(:hint) }
         end
 
-        context 'when hints is used output appropriate message from view' do
+        context 'when hints is used receive appropriate message from view' do
           before do
             allow(view_module).to receive(:obtain_guess).and_return(I18n.t('game.hint'), I18n.t('game.hint'),
                                                                     I18n.t('menu.exit'))
