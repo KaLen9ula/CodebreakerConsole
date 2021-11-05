@@ -7,7 +7,7 @@ RSpec.describe Console do
 
   let(:game) { described_class.new }
   let(:code) { Codebraker::CODE_RANGE.sample(6).join }
-  let(:name) { Faker::Internet.user_name(Codebraker::NAME_LENGTH) }
+  let(:name) { FFaker::Name.first_name }
   let(:difficulty) { Codebraker::DIFFICULTIES.keys[2].to_s }
 
   describe '#run' do

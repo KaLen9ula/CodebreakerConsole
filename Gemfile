@@ -12,16 +12,16 @@ group :development do
   gem 'lefthook', '~> 0.7.7'
   gem 'pry', '~> 0.14.1'
   gem 'rubocop', '~> 1.22.1'
-  gem 'rubocop-performance', '~> 1.11.5'
-  gem 'simplecov', '~> 0.21.2'
+  gem 'rubocop-performance', '~> 1.11.5', require: false
 end
 
 group :test do
   gem 'rspec', '~> 3.0'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'rubocop-rspec', '~> 2.5.0'
+  gem 'simplecov', '~> 0.21.2'
 end
 
 group :development, :test do
-  gem 'faker', '~> 2.19.0'
+  gem 'ffaker', '~> 2.20.0'
 end

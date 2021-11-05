@@ -4,7 +4,7 @@ RSpec.describe Console do
   subject(:view_module) { ConsoleGame::View }
 
   let(:game) { described_class.new }
-  let(:name) { Faker::Internet.user_name(Codebraker::NAME_LENGTH) }
+  let(:name) { FFaker::Name.first_name }
   let(:shorter_name) { 'a' * (Codebraker::NAME_LENGTH.min - 1) }
   let(:longer_name) { 'a' * (Codebraker::NAME_LENGTH.max + 1) }
   let(:difficulty) { Codebraker::DIFFICULTIES.keys[2].to_s }

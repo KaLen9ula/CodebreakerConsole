@@ -14,11 +14,10 @@ GEM
     concurrent-ruby (1.1.9)
     diff-lcs (1.4.4)
     docile (1.4.0)
-    faker (2.19.0)
-      i18n (>= 1.6, < 2)
     fasterer (0.8.3)
       colorize (~> 0.7)
       ruby_parser (>= 3.14.1)
+    ffaker (2.20.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     lefthook (0.7.7)
@@ -83,8 +82,8 @@ PLATFORMS
 
 DEPENDENCIES
   codebraker!
-  faker (~> 2.19.0)
   fasterer (~> 0.8.3)
+  ffaker (~> 2.20.0)
   i18n (~> 1.8.10)
   lefthook (~> 0.7.7)
   pry (~> 0.14.1)

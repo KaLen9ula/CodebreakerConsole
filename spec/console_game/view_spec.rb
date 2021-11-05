@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'support/shared_examples_for_view'
-
 require_relative '../spec_helper'
 
 RSpec.describe ConsoleGame::View do
