@@ -7,6 +7,11 @@ RSpec.describe Console do
   let(:invalid_command) { 'q' * 4 }
 
   describe '#run' do
+    before do
+      stub_const('Codebraker::FileStore::FILE_NAME', 'gamers.yml')
+      stub_const('Codebraker::FileStore::FILE_DIRECTORY', 'spec/fixtures')
+    end
+
     after do
       game.run
     rescue SystemExit
